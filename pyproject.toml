@@ -1,0 +1,6 @@
+[project]
+name = "phalanx-pilot-py"
+version = "0.1.0"
+description = "Tiny Python package used as a Phalanx acceptance target"
+requires-python = ">=3.12"
+dependencies = []
