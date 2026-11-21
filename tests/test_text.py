@@ -10,6 +10,9 @@ class SlugifyTests(unittest.TestCase):
     def test_strips_edge_separators(self):
         self.assertEqual(slugify("  Phalanx! "), "phalanx")
 
+    def test_collapses_consecutive_separators(self):
+        self.assertEqual(slugify("Hello,  World -- again!"), "hello-world-again")
+
 
 class WordCountTests(unittest.TestCase):
     def test_counts_words(self):
