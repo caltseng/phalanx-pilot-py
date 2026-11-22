@@ -3,8 +3,8 @@
 
 def slugify(text: str) -> str:
     """Return a lowercase, hyphen-separated slug for ``text``."""
-    slug = "".join(ch if ch.isalnum() else "-" for ch in text.lower())
-    return slug.strip("-")
+    slug = "".join(ch if ch.isalnum() else " " for ch in text.lower())
+    return "-".join(slug.split())
 
 
 def word_count(text: str) -> int:
