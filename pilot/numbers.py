@@ -16,3 +16,17 @@ def mean(values: Iterable[float]) -> float:
     if not items:
         raise ValueError("mean requires at least one value")
     return sum(items) / len(items)
+
+
+def median(values: Iterable[float]) -> float:
+    """Return the median of ``values``.
+
+    For an even count, return the mean of the two middle values.
+    """
+    items = sorted(values)
+    if not items:
+        raise ValueError("median requires at least one value")
+    middle = len(items) // 2
+    if len(items) % 2:
+        return items[middle]
+    return (items[middle - 1] + items[middle]) / 2
