@@ -1,6 +1,7 @@
 import unittest
 
 from pilot import clamp, mean
+from pilot.numbers import median
 
 
 class ClampTests(unittest.TestCase):
@@ -23,6 +24,22 @@ class MeanTests(unittest.TestCase):
     def test_empty(self):
         with self.assertRaises(ValueError):
             mean([])
+
+
+class MedianTests(unittest.TestCase):
+    def test_odd_count(self):
+        self.assertEqual(median([1, 2, 3]), 2)
+
+    def test_even_count(self):
+        self.assertEqual(median([1, 2, 3, 4]), 2.5)
+
+    def test_unsorted(self):
+        self.assertEqual(median([3, 1, 2]), 2)
+        self.assertEqual(median([4, 1, 3, 2]), 2.5)
+
+    def test_empty(self):
+        with self.assertRaises(ValueError):
+            median([])
 
 
 if __name__ == "__main__":
